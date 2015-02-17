@@ -4,7 +4,7 @@ MAINTAINER dmitry.kontsevoy@gmail.com
 
 # Install additional packages
 RUN apt-get update \
-  && apt-get install -y libpq-dev nodejs imagemagick git
+  && apt-get install -y libpq-dev nodejs imagemagick git build-essential
 
 # Install phusion passenger
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7 \
@@ -16,9 +16,7 @@ RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 561F9B9CAC40B2F7 \
 # Install nginx config
 ADD config/nginx.conf /etc/nginx/nginx.conf
 ADD config/nginx.rails.conf /etc/nginx/sites-enabled/rails.conf
-
-RUN mkdir /app \
-  && rm /etc/nginx/sites-enabled/default
+RUN rm /etc/nginx/sites-enabled/default
 
 WORKDIR /app
 

@@ -1,4 +1,4 @@
-FROM ubuntu:trusty
+from ubuntu:trusty
 
 MAINTAINER dmitry.kontsevoy@gmail.com
 
