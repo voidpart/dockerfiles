@@ -1,0 +1,17 @@
+#!/bin/sh
+
+echo "*/$TOR_RELOAD_MINUTES * * * * /usr/bin/killall -s SIGHUP tor" >> /etc/crontabs/root
+
+for i in `seq 1 $TOR_NUM`
+do
+	PORT=$((10050+i))
+  	echo "        server tor_pool_$PORT 127.0.0.1:$PORT check" >> /etc/haproxy.cfg
+	tor --SocksPort $PORT --DataDirectory /var/lib/tor/$PORT/ &
+done
+
+echo ">> Waiting for tor"
+sleep 3
+
+crond
+haproxy -D -f /etc/haproxy.cfg
+3proxy /etc/3proxy.cfg
