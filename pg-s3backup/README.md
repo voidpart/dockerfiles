@@ -8,6 +8,8 @@
 - PGUSER
 - S3_PATH (s3://<bucket>/<path to file>)
 
+You also must specify AWS credentials if not using ec2 roles.
+
 ## Cron config
 
 By default image backups database every day at 00:00.
