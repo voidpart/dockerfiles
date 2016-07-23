@@ -1,0 +1,5 @@
+#!/bin/sh
+
+export -p > /etc/profile.d/env.sh
+echo "$CRON_CONFIG root /bin/bash -l -c 'backup'" >> /etc/crontab
+exec cron -f

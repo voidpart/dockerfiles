@@ -1,0 +1,5 @@
+#!/bin/sh
+
+pg_dump --schema public --verbose --clean --if-exists --no-owner --no-acl --format=c --compress 9 > /tmp/pg.backup 2> /dev/stderr || exit 1
+aws s3 cp /tmp/pg.backup $S3_PATH
+rm /tmp/pg.backup
