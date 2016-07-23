@@ -1,0 +1,12 @@
+#!/bin/bash
+
+LOGROTATE_CONFIG=/etc/logrotate.d/app.conf
+
+:>$LOGROTATE_CONFIG
+(
+  echo "$LOGROTATE_PATHS {" 
+  echo $LOGROTATE_OPTIONS | tr ',' '\n' | sed -E 's/(^\s*|\s*$)//g' | sed 's/^/  /g' 
+  echo "}"
+) >> $LOGROTATE_CONFIG
+
+cron -f
