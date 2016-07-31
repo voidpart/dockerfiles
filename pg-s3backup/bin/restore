@@ -1,5 +1,5 @@
 #!/bin/sh
 
 aws s3 cp $S3_PATH /tmp/pg.restore || exit 1
-pg_restore --schema public --verbose --clean --if-exists --no-owner --no-acl --single-transaction --dbname $PGDATABASE /tmp/pg.restore > /dev/stdout 2> /dev/stderr
+pg_restore --schema public --verbose --create --clean --if-exists --no-owner --no-acl --single-transaction --dbname $PGDATABASE /tmp/pg.restore > /dev/stdout 2> /dev/stderr
 rm /tmp/pg.restore
