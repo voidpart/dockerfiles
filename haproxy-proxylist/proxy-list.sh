@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 HAPROXY_CONFIG="/usr/local/etc/haproxy/haproxy.cfg"
 
@@ -28,10 +29,12 @@ backend proxies
 TXT
 
 num=0
-for i in `cat $PROXY_FILE`
+while read i
 do
-  num=$num+1
-  cat "    server app${num} ${i}" >> $HAPROXY_CONFIG
-done
+  let "num += 1"
+  echo "    server app${num} ${i}" >>$HAPROXY_CONFIG
+done <$PROXY_FILE
 
-exec /docker-entrypoint.sh $@
+set -- /docker-entrypoint.sh "$@"
+echo $@
+exec "$@"
