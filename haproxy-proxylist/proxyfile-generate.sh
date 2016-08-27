@@ -43,5 +43,5 @@ done <$PROXY_FILE
 
 if [ -f $HAPROXY_PIDFILE ]
 then
-  kill -s SIGHUP `cat $HAPROXY_PIDFILE`
+  kill -s SIGHUP 1
 fi
