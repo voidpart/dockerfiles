@@ -1,6 +1,6 @@
 FROM ruby:2.3-alpine
 
 RUN apk add --no-cache nodejs mariadb-dev mariadb-client dcron postgresql-client postgresql-dev git build-base \
-      libxml2 libxml2-dev libxslt libxslt-dev tzdata
+      libxml2 libxml2-dev libxslt libxslt-dev tzdata curl
 RUN bundle config build.nokogiri --use-system-libraries
 RUN npm install -g phantomjs-prebuilt
