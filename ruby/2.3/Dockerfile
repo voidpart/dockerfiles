@@ -5,4 +5,4 @@ RUN apt-get update \
   && apt-get install -y --no-install-recommends postgresql-client mysql-client cron nodejs \ 
   && apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
   && bundle config build.nokogiri --use-system-libraries \
-  && npm install -g phantomjs-prebuilt yarn
+  && npm install -g yarn
