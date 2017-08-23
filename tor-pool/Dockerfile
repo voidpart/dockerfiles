@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:latest
 
 RUN apk add haproxy --no-cache \
   && apk add 3proxy --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/testing/ --allow-untrusted \
