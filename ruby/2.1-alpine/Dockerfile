@@ -1,4 +1,4 @@
-FROM ruby:2.4-alpine
+FROM ruby:2.1-alpine
 
 RUN apk add --no-cache nodejs mariadb-dev mariadb-client dcron postgresql-client postgresql-dev git build-base \
       libxml2 libxml2-dev libxslt libxslt-dev tzdata curl coreutils
