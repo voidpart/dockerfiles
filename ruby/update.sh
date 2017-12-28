@@ -6,6 +6,7 @@ versions=(
   '2.2' 
   '2.3'
   '2.4'
+  '2.5'
 )
 
 for version in ${versions[*]}; do
@@ -21,6 +22,7 @@ versions=(
   '2.2' 
   '2.3'
   '2.4'
+  '2.5'
 )
 for version in ${versions[*]}; do
   echo Templating $version-alpine
@@ -32,6 +34,7 @@ done
 
 versions=(
   '2.4'
+  '2.5'
 )
 for version in ${versions[*]}; do
   echo Templating $version-alpine3.6
