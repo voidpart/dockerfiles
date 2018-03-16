@@ -1,8 +1,6 @@
 FROM ruby:%%VERSION%%-alpine3.7
 
-RUN apk add --no-cache mariadb-dev mariadb-client dcron postgresql-client postgresql-dev git \
-      tzdata coreutils \
-      build-base \
-      curl wget bash \
+RUN apk add --no-cache curl wget bash git \
+      tzdata coreutils build-base \
       nodejs yarn
 ENV BUNDLE_FORCE_RUBY_PLATFORM=1
