@@ -1,5 +1,7 @@
 FROM ruby:%%VERSION%%
 
+RUN echo "@edge http://nl.alpinelinux.org/alpine/edge/main" >> /etc/apk/repositories
+
 RUN apt-get update \
   && apt-get install -y apt-transport-https \
   && curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
