@@ -2,7 +2,7 @@
 # set -e
 
 versions=(
-  '2.2' 
+  '2.2'
   '2.3'
   '2.4'
   '2.5'
@@ -31,7 +31,7 @@ done
 
 versionsalpine37=(
   '2.4'
-  '2.5'
+  # '2.5'
 )
 
 for version in ${versionsalpine37[*]}; do
